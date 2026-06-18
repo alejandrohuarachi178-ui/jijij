@@ -10,7 +10,6 @@ class Gerente(Empleado):
         self.bono_proyectos = bono_proyectos
 
     def calcular_aumento(self):
-        # Criterio: 10% del salario base más su bono fijo
         aumento = (self.salario * 0.10) + self.bono_proyectos
         return aumento
 
@@ -20,7 +19,6 @@ class EmpleadoTemporal(Empleado):
         self.meses_contratado = meses_contratado
 
     def calcular_aumento(self):
-        # Criterio: Si lleva más de 6 meses, se le da un 5% de aumento
         if self.meses_contratado > 6:
             return self.salario * 0.05
         else:
