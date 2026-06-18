@@ -30,4 +30,4 @@ class Profesor(Persona):
         self.materias = lista_materias
 
     def mostrar_informacion_especifica(self):
-        print(f"Rol Actual: {self.rol} | Dictado las materias: {self.materias}")
+        print(f"Rol Actual: {self.rol} | Dicta las materias: {self.materias}")
