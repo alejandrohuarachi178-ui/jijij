@@ -1,0 +1,33 @@
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def mostrar_informacion_personal(self):
+        print(f"Nombre: {self.nombre} | Edad: {self.edad} años")
+
+class Estudiante(Persona):
+    def __init__(self, nombre, edad):
+        super().__init__(nombre, edad)
+        self.rol = "Ninguno"
+        self.codigo_estudiante = ""
+
+    def asignar_rol(self, codigo):
+        self.rol = "Estudiante Activo"
+        self.codigo_estudiante = codigo
+
+    def mostrar_informacion_especifica(self):
+        print(f"Rol Actual: {self.rol} | Código: {self.codigo_estudiante}")
+
+class Profesor(Persona):
+    def __init__(self, nombre, edad):
+        super().__init__(nombre, edad)
+        self.rol = "Ninguno"
+        self.materias = []
+
+    def asignar_rol(self, lista_materias):
+        self.rol = "Docente"
+        self.materias = lista_materias
+
+    def mostrar_informacion_especifica(self):
+        print(f"Rol Actual: {self.rol} | Dictado las materias: {self.materias}")
