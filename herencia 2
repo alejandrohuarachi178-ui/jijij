@@ -1,0 +1,27 @@
+class Empleado:
+    def __init__(self, nombre, salario, cargo):
+        self.nombre = nombre
+        self.salario = salario
+        self.cargo = cargo
+
+class Gerente(Empleado):
+    def __init__(self, nombre, salario, cargo, bono_proyectos):
+        super().__init__(nombre, salario, cargo)
+        self.bono_proyectos = bono_proyectos
+
+    def calcular_aumento(self):
+        # Criterio: 10% del salario base más su bono fijo
+        aumento = (self.salario * 0.10) + self.bono_proyectos
+        return aumento
+
+class EmpleadoTemporal(Empleado):
+    def __init__(self, nombre, salario, cargo, meses_contratado):
+        super().__init__(nombre, salario, cargo)
+        self.meses_contratado = meses_contratado
+
+    def calcular_aumento(self):
+        # Criterio: Si lleva más de 6 meses, se le da un 5% de aumento
+        if self.meses_contratado > 6:
+            return self.salario * 0.05
+        else:
+            return 0
