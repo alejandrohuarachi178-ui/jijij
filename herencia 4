@@ -1,0 +1,29 @@
+class Vehiculo:
+    def __init__(self, marca, modelo, anio):
+        self.marca = marca
+        self.modelo = modelo
+        self.anio = anio
+
+class Automovil(Vehiculo):
+    def __init__(self, marca, modelo, anio, km_por_litro):
+        super().__init__(marca, modelo, anio)
+        self.km_por_litro = km_por_litro
+
+    def calcular_eficiencia(self):
+        print(f"El automóvil rinde {self.km_por_litro} kilómetros por litro.")
+
+    def proyectar_combustible(self, distancia_viaje):
+        litros_necesarios = distancia_viaje / self.km_por_litro
+        print(f"Para un viaje de {distancia_viaje} km se necesitan {litros_necesarios} litros.")
+
+class Motocicleta(Vehiculo):
+    def __init__(self, marca, modelo, anio, km_por_litro):
+        super().__init__(marca, modelo, anio)
+        self.km_por_litro = km_por_litro
+
+    def calcular_eficiencia(self):
+        print(f"La motocicleta rinde {self.km_por_litro} kilómetros por litro.")
+
+    def proyectar_combustible(self, distancia_viaje):
+        litros_necesarios = distancia_viaje / self.km_por_litro
+        print(f"Para un viaje de {distancia_viaje} km se necesitan {litros_necesarios} litros.")
