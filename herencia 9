@@ -1,0 +1,53 @@
+class Tienda:
+    def __init__(self, nombre, direccion):
+        self.nombre = nombre
+        self.direccion = direccion
+
+    def mostrar_informacion_general(self):
+        print(f"Bienvenidos a '{self.nombre}' ubicada en {self.direccion}.")
+
+class TiendaRopa(Tienda):
+    def __init__(self, nombre, direccion):
+        super().__init__(nombre, direccion)
+        self.inventario = []
+        self.total_ventas = 0.0
+
+    def agregar_producto(self, prenda):
+        self.inventario.append(prenda)
+        print(f"Prenda '{prenda}' agregada al stock.")
+
+    def eliminar_producto(self, prenda):
+        if prenda in self.inventario:
+            self.inventario.remove(prenda)
+            print(f"Prenda '{prenda}' removida del stock.")
+        else:
+            print(f"La prenda '{prenda}' no existe en el inventario.")
+
+    def registrar_venta(self, monto):
+        self.total_ventas = self.total_ventas + monto
+
+    def calcular_total_ventas(self):
+        return self.total_ventas
+
+class TiendaElectrónica(Tienda):
+    def __init__(self, nombre, direccion):
+        super().__init__(nombre, direccion)
+        self.inventario = []
+        self.total_ventas = 0.0
+
+    def agregar_producto(self, artefacto):
+        self.inventario.append(artefacto)
+        print(f"Dispositivo '{artefacto}' guardado en almacén.")
+
+    def eliminar_producto(self, artefacto):
+        if artefacto in self.inventario:
+            self.inventario.remove(artefacto)
+            print(f"Dispositivo '{artefacto}' retirado del almacén.")
+        else:
+            print(f"El dispositivo '{artefacto}' no está registrado.")
+
+    def registrar_venta(self, monto):
+        self.total_ventas = self.total_ventas + monto
+
+    def calcular_total_ventas(self):
+        return self.total_ventas
