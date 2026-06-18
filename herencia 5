@@ -6,7 +6,6 @@ class Producto:
 
 class ProductoAlimenticio(Producto):
     def aplicar_descuento(self, mes_actual):
-        # Si vence este mismo mes, se le hace un 30% de descuento
         if self.mes_vencimiento == mes_actual:
             self.precio = self.precio * 0.70
             print(f"¡Descuento por vencer este mes! Nuevo precio de {self.nombre}: ${self.precio}")
@@ -19,7 +18,6 @@ class ProductoElectrónico(Producto):
         self.tiene_falla_estetica = tiene_falla_estetica
 
     def aplicar_descuento(self, mes_actual):
-        # Si tiene un detalle estético de exhibición, se descuenta un 15%
         if self.tiene_falla_estetica == True:
             self.precio = self.precio * 0.85
             print(f"Descuento por detalle estético. Nuevo precio de {self.nombre}: ${self.precio}")
