@@ -1,0 +1,27 @@
+class Producto:
+    def __init__(self, nombre, precio, mes_vencimiento):
+        self.nombre = nombre
+        self.precio = precio
+        self.mes_vencimiento = mes_vencimiento
+
+class ProductoAlimenticio(Producto):
+    def aplicar_descuento(self, mes_actual):
+        # Si vence este mismo mes, se le hace un 30% de descuento
+        if self.mes_vencimiento == mes_actual:
+            self.precio = self.precio * 0.70
+            print(f"¡Descuento por vencer este mes! Nuevo precio de {self.nombre}: ${self.precio}")
+        else:
+            print(f"El producto {self.nombre} mantiene su precio normal.")
+
+class ProductoElectrónico(Producto):
+    def __init__(self, nombre, precio, mes_vencimiento, tiene_falla_estetica):
+        super().__init__(nombre, precio, mes_vencimiento)
+        self.tiene_falla_estetica = tiene_falla_estetica
+
+    def aplicar_descuento(self, mes_actual):
+        # Si tiene un detalle estético de exhibición, se descuenta un 15%
+        if self.tiene_falla_estetica == True:
+            self.precio = self.precio * 0.85
+            print(f"Descuento por detalle estético. Nuevo precio de {self.nombre}: ${self.precio}")
+        else:
+            print(f"El producto {self.nombre} no tiene descuentos disponibles.")
