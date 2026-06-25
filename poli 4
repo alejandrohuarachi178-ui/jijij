@@ -1,0 +1,38 @@
+class Empleado:
+    def calcularSalario(self):
+        raise NotImplementedError()
+
+class EmpleadoPorHora(Empleado):
+    def __init__(self, horas, tarifa):
+        self.horas = horas
+        self.tarifa = tarifa
+        
+    def calcularSalario(self):
+        return self.horas * self.tarifa
+
+class EmpleadoFijo(Empleado):
+    def __init__(self, salario_base):
+        self.salario_base = salario_base
+        
+    def calcularSalario(self):
+        return self.salario_base
+
+def main():
+    empleados = [
+        EmpleadoPorHora(40, 2000),
+        EmpleadoFijo(150000),
+        EmpleadoPorHora(25, 2500)
+    ]
+    
+    salario_total = 0
+    
+    for empleado in empleados:
+        salario = empleado.calcularSalario()
+        salario_total += salario
+        print(f"Salario de {empleado.__class__.__name__}: ${salario:.2f}")
+        
+    print("-" * 30)
+    print(f"SALARIO TOTAL A PAGAR: ${salario_total:.2f}")
+
+if __name__ == "__main__":
+    main()
