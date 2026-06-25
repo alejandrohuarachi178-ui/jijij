@@ -1,0 +1,26 @@
+class Pago:
+    def procesarPago(self, monto):
+        raise NotImplementedError()
+
+class TarjetaCredito(Pago):
+    def procesarPago(self, monto):
+        return f"Procesando el pago de ${monto:.2f} a través del procesador de Tarjeta de Crédito."
+
+class PayPal(Pago):
+    def procesarPago(self, monto):
+        return f"Procesando el pago de ${monto:.2f} conectando con los servidores de PayPal."
+
+def main():
+    metodos_pago = [
+        TarjetaCredito(),
+        PayPal(),
+        TarjetaCredito()
+    ]
+    
+    montos = [3500.50, 1200.00, 899.99]
+    
+    for metodo, monto in zip(metodos_pago, montos):
+        print(metodo.procesarPago(monto))
+
+if __name__ == "__main__":
+    main()
